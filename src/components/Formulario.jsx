@@ -1,5 +1,5 @@
-// components/Formulario.jsx
 import React, { useState } from 'react';
+
 const Formulario = ({ agregarColaborador }) => {
     const [partner, setPartner] = useState({
         nombre: '',
@@ -11,7 +11,6 @@ const Formulario = ({ agregarColaborador }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Validación de campos no vacíos
         if (!partner.nombre || !partner.correo || !partner.edad || !partner.cargo || !partner.telefono) {
             alert('Por favor completa todos los campos');
             return;
@@ -34,18 +33,29 @@ const Formulario = ({ agregarColaborador }) => {
     };
 
     return (
-        <div>
-            <h2>Agregar Colaborador</h2>
+        <div className="formContainer">
+            <h2 className="mt-3">Agregar Colaborador</h2>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="nombre" value={partner.nombre} onChange={handleChange} placeholder="Nombre" />
-                <input type="email" name="correo" value={partner.correo} onChange={handleChange} placeholder="Correo" />
-                <input type="number" name="edad" value={partner.edad} onChange={handleChange} placeholder="Edad" />
-                <input type="text" name="cargo" value={partner.cargo} onChange={handleChange} placeholder="Cargo" />
-                <input type="text" name="telefono" value={partner.telefono} onChange={handleChange} placeholder="Teléfono" />
-                <button type="submit">Guardar</button>
+                <div className="mb-2">
+                    <input type="text" className="form-control" id="nombre" name="nombre" value={partner.nombre} onChange={handleChange} placeholder="Nombre del Colaborador" />
+                </div>
+                <div className="mb-3">
+                    <input type="email" className="form-control" id="correo" name="correo" value={partner.correo} onChange={handleChange} placeholder="Email del Colaborador" />
+                </div>
+                <div className="mb-3">
+                    <input type="number" className="form-control" id="edad" name="edad" value={partner.edad} onChange={handleChange} placeholder="Edad del Colaborador" />
+                </div>
+                <div className="mb-3">
+                    <input type="text" className="form-control" id="cargo" name="cargo" value={partner.cargo} onChange={handleChange} placeholder="Cargo del Colaborador" />
+                </div>
+                <div className="mb-3">
+                    <input type="text" className="form-control" id="telefono" name="telefono" value={partner.telefono} onChange={handleChange} placeholder="Teléfono del Colaborador" />
+                </div>
+                <button type="submit" className="btn btn-primary">Agregar Colaborador</button>
             </form>
         </div>
     );
 }
 
 export default Formulario;
+

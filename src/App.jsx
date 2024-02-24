@@ -8,20 +8,24 @@ import { BaseColaboradores } from './assets/BaseColaboradores';
 
 function App() {
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);
+  const [originalColaboradores, setOriginalColaboradores] = useState(BaseColaboradores);
 
   const agregarColaborador = (nuevoColaborador) => {
     setColaboradores([...colaboradores, { id: colaboradores.length + 1, ...nuevoColaborador }]);
+    setOriginalColaboradores([...originalColaboradores, { id: originalColaboradores.length + 1, ...nuevoColaborador }]);
   };
 
   return (
     <>
-      <Alert /> {/* Agrega el componente de Alert si es necesario */}
-      <Buscador /> {/* Agrega el componente de Buscador si es necesario */}
-      <Listado colaboradores={colaboradores} />
-      <Formulario agregarColaborador={agregarColaborador} />
+      <div className='container'>
+        <h2>Listado de Colaboradores</h2>
+        <Buscador colaboradores={colaboradores} setColaboradores={setColaboradores} originalColaboradores={originalColaboradores} />
+        <Listado colaboradores={colaboradores} />
+        <Formulario agregarColaborador={agregarColaborador} />
+        <Alert /> {/* Pendiente Alert */}
+      </div>
     </>
   );
 }
 
 export default App;
-

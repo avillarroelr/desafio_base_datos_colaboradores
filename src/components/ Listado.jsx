@@ -1,10 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 const Listado = ({ colaboradores }) => { 
     return (
         <div className="container mt-4">
-            <h2>Listado de Colaboradores</h2>
             <table className="table table-striped">
                 <thead>
                     <tr>
