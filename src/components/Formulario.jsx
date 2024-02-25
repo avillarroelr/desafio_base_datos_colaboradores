@@ -1,4 +1,3 @@
-// Componente Formulario en components/Formulario.jsx
 import React, { useState } from 'react';
 
 const Formulario = ({ agregarColaborador, setAlertMessage, setAlertType }) => {

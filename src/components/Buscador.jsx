@@ -13,7 +13,7 @@ const Buscador = ({ colaboradores, setColaboradores, originalColaboradores }) =>
     );
     setColaboradores(filteredColaboradores);
   };
-
+  
   useEffect(() => {
     if (!busqueda) {
       setColaboradores(originalColaboradores);

@@ -1,4 +1,3 @@
-// Componente Listado en components/Listado.jsx
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
