@@ -1,6 +1,8 @@
+// Componente Listado en components/Listado.jsx
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const Listado = ({ colaboradores }) => { 
+
+const Listado = ({ colaboradores, eliminarColaborador }) => { 
     return (
         <div className="container mt-4">
             <table className="table table-bordered table-striped">
@@ -12,6 +14,7 @@ const Listado = ({ colaboradores }) => {
                         <th>Edad</th>
                         <th>Cargo</th>
                         <th>Teléfono</th>
+                        <th>Borrar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,6 +26,15 @@ const Listado = ({ colaboradores }) => {
                             <td>{colaborador.edad}</td>
                             <td>{colaborador.cargo}</td>
                             <td>{colaborador.telefono}</td>
+                            <td>
+                                <button 
+                                    type="button" 
+                                    className="btn btn-danger btn-sm"
+                                    onClick={() => eliminarColaborador(colaborador.id)}
+                                >
+                                    <i className="bi bi-x">X</i>
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -32,3 +44,4 @@ const Listado = ({ colaboradores }) => {
 }
 
 export default Listado;
+

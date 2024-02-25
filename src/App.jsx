@@ -27,6 +27,12 @@ function App() {
     }, 3000);
   };
 
+  const eliminarColaborador = (id) => {
+    const nuevoColaboradores = colaboradores.filter(colaborador => colaborador.id !== id);
+    setColaboradores(nuevoColaboradores);
+    setOriginalColaboradores(nuevoColaboradores);
+  };
+
   return (
     <>
       <div class="card text-center">
@@ -37,7 +43,7 @@ function App() {
                 <div class="card-body ">
                   <h2 class="card-title">Listado de Colaboradores</h2>
                   <Buscador colaboradores={colaboradores} setColaboradores={setColaboradores} originalColaboradores={originalColaboradores} />
-                  <Listado colaboradores={colaboradores} />
+                  <Listado colaboradores={colaboradores} eliminarColaborador={eliminarColaborador} />
                 </div>
               </div>
             </div>

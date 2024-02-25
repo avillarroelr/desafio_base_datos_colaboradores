@@ -21,8 +21,8 @@ const Buscador = ({ colaboradores, setColaboradores, originalColaboradores }) =>
   }, [busqueda, originalColaboradores, setColaboradores]);
 
   return (
-    <div>
-      <input
+    <div class="col-sm-6">
+      <input 
         type="text"
         className="form-control"
         value={busqueda}
