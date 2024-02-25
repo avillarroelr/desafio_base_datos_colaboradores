@@ -9,10 +9,22 @@ import { BaseColaboradores } from './assets/BaseColaboradores';
 function App() {
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);
   const [originalColaboradores, setOriginalColaboradores] = useState(BaseColaboradores);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertType, setAlertType] = useState('');
 
   const agregarColaborador = (nuevoColaborador) => {
-    setColaboradores([...colaboradores, { id: colaboradores.length + 1, ...nuevoColaborador }]);
-    setOriginalColaboradores([...originalColaboradores, { id: originalColaboradores.length + 1, ...nuevoColaborador }]);
+    if (!nuevoColaborador.nombre || !nuevoColaborador.correo || !nuevoColaborador.edad || !nuevoColaborador.cargo || !nuevoColaborador.telefono) {
+      setAlertMessage('Por favor completa todos los campos');
+      setAlertType('warning');
+    } else {
+      setColaboradores([...colaboradores, { id: colaboradores.length + 1, ...nuevoColaborador }]);
+      setOriginalColaboradores([...originalColaboradores, { id: originalColaboradores.length + 1, ...nuevoColaborador }]);
+      setAlertMessage('Colaborador agregado exitosamente');
+      setAlertType('success');
+    }
+    setTimeout(() => {
+      setAlertMessage('');
+    }, 5000);
   };
 
   return (
@@ -21,8 +33,8 @@ function App() {
         <h2>Listado de Colaboradores</h2>
         <Buscador colaboradores={colaboradores} setColaboradores={setColaboradores} originalColaboradores={originalColaboradores} />
         <Listado colaboradores={colaboradores} />
-        <Formulario agregarColaborador={agregarColaborador} />
-        <Alert /> {/* Pendiente Alert */}
+        <Formulario agregarColaborador={agregarColaborador} setAlertMessage={setAlertMessage} setAlertType={setAlertType} />
+        <Alert message={alertMessage} type={alertType} />
       </div>
     </>
   );
