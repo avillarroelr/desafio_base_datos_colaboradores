@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Listado = ({ colaboradores }) => { 
     return (
         <div className="container mt-4">
-            <table className="table table-striped">
+            <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>

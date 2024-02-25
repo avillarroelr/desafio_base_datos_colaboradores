@@ -27,7 +27,7 @@ const Buscador = ({ colaboradores, setColaboradores, originalColaboradores }) =>
         className="form-control"
         value={busqueda}
         onChange={handleChange}
-        placeholder="Buscar colaborador"
+        placeholder="Buscar un colaborador"
       />
     </div>
   );

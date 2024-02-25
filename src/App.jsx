@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Listado from './components/ Listado';
+import Listado from './components/Listado';
 import Formulario from './components/Formulario';
 import Alert from './components/Alert';
 import Buscador from './components/Buscador';
@@ -24,17 +24,35 @@ function App() {
     }
     setTimeout(() => {
       setAlertMessage('');
-    }, 5000);
+    }, 3000);
   };
 
   return (
     <>
-      <div className='container'>
-        <h2>Listado de Colaboradores</h2>
-        <Buscador colaboradores={colaboradores} setColaboradores={setColaboradores} originalColaboradores={originalColaboradores} />
-        <Listado colaboradores={colaboradores} />
-        <Formulario agregarColaborador={agregarColaborador} setAlertMessage={setAlertMessage} setAlertType={setAlertType} />
-        <Alert message={alertMessage} type={alertType} />
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="row  justify-content-center">
+            <div class="col-sm-7">
+              <div class="card text-left">
+                <div class="card-body ">
+                  <h2 class="card-title">Listado de Colaboradores</h2>
+                  <Buscador colaboradores={colaboradores} setColaboradores={setColaboradores} originalColaboradores={originalColaboradores} />
+                  <Listado colaboradores={colaboradores} />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Agregar Colaborador</h2>
+                  <Formulario agregarColaborador={agregarColaborador} setAlertMessage={setAlertMessage} setAlertType={setAlertType} />
+                  <br />
+                  <Alert message={alertMessage} type={alertType} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
